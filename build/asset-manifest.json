@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8f05774f.css",
+    "main.js": "/static/js/main.70e4c1ac.js",
+    "static/js/787.c93d28ce.chunk.js": "/static/js/787.c93d28ce.chunk.js",
+    "static/media/hero-video.mp4": "/static/media/hero-video.1fd910f0f0d5490e1979.mp4",
+    "static/media/test.pdf": "/static/media/test.7e1f6ce73e43d4bd5885.pdf",
+    "static/media/pdf.worker.js": "/static/media/pdf.worker.7eac0b6e7fdb152039dd.js",
+    "static/media/Louis-Moinet-1.jpg": "/static/media/Louis-Moinet-1.3821fa6abf3110e0e865.jpg",
+    "static/media/Vacheron Constantin.png": "/static/media/Vacheron Constantin.e47ce7cc7ecb13c6bbc2.png",
+    "static/media/hero-bg.webp": "/static/media/hero-bg.2e51d13111dc1eeaf8ed.webp",
+    "static/media/FRANCK MULLER.png": "/static/media/FRANCK MULLER.29f49d1bd8761d5f188b.png",
+    "static/media/GIARD-PERREGAUX.png": "/static/media/GIARD-PERREGAUX.def1a1007b925f1c8175.png",
+    "static/media/Alange_soehne_logo.svg.png": "/static/media/Alange_soehne_logo.svg.ae30eb200f3e34e44cab.png",
+    "static/media/OMEGA.png": "/static/media/OMEGA.feb2abb0308e430cc1e6.png",
+    "static/media/1200px-Rolex_logo.svg.png": "/static/media/1200px-Rolex_logo.svg.b8ab8e8e97809d981637.png",
+    "static/media/PIAGET.png": "/static/media/PIAGET.0f3b460603ca3df3a8a2.png",
+    "static/media/Logo.png": "/static/media/Logo.c4e69698649f49cf2e3a.png",
+    "static/media/contact.jpg": "/static/media/contact.6f9af30f1b32caae77ea.jpg",
+    "static/media/F.P.JOURNE.png": "/static/media/F.P.JOURNE.436985820c0021834222.png",
+    "static/media/CARTIE.png": "/static/media/CARTIE.8f1fa0d0b9208555ee65.png",
+    "static/media/RICHARD MILLE.png": "/static/media/RICHARD MILLE.d682f5e58e52a82d32d7.png",
+    "static/media/ZENITH.png": "/static/media/ZENITH.5be3bbde83834ba1f286.png",
+    "static/media/IWC.png": "/static/media/IWC.5e92a72cb263b8e84463.png",
+    "static/media/PATEK PHILIPPE.png": "/static/media/PATEK PHILIPPE.8729f1f14fbe123e1ff6.png",
+    "static/media/Logo.svg": "/static/media/Logo.f24d9ec352697ca6ab1f8f0539a96d65.svg",
+    "index.html": "/index.html",
+    "static/media/mail.svg": "/static/media/mail.9b730b77ab933666bfb5e9b9003395df.svg",
+    "main.8f05774f.css.map": "/static/css/main.8f05774f.css.map",
+    "main.70e4c1ac.js.map": "/static/js/main.70e4c1ac.js.map",
+    "787.c93d28ce.chunk.js.map": "/static/js/787.c93d28ce.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8f05774f.css",
+    "static/js/main.70e4c1ac.js"
+  ]
+}
