@@ -12,7 +12,7 @@ const account3schema = new mongoose.Schema({
     certification:{type:Object,default:null},
     booking:{
         time:String,
-        day:{type:Date},
+        day:{type:String},
         date:{type:Date,default:new Date()},
         note:String
         },
