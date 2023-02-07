@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const link = "mongodb+srv://Ali_Afify:Alssultan@cluster0.ouc2r.mongodb.net/?retryWrites=true&w=majority"
 const localLink = process.env.MONGO
 
 async function main() {
