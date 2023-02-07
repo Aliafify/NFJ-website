@@ -39,7 +39,7 @@ Router.get("/auth", async (req, res) => {
     if (req.user) {
       const id = req.session.passport.user;
       const role = req.user.user.role;
-      const schemas = { admin: Admin, teacher: Account2, student: Account3 };
+      const schemas = { admin: Admin, teacher: Account2, client: Account3 };
       const Schema = schemas[role];
       await Schema.findOne({ _id: id }, (err, user) => {
         if (err) throw err;
