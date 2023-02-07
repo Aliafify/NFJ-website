@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const link = "mongodb+srv://Ali_Afify:Alssultan@cluster0.ouc2r.mongodb.net/?retryWrites=true&w=majority"
-const localLink = 'mongodb://localhost:27017'
+const localLink = process.env.MONGO
 
 async function main() {
   await mongoose.connect(localLink,
