@@ -29,7 +29,7 @@ const multerFilter = (req, file, cb) => {
       "jpeg" ||
       "png" ||
       "webp" ||
-      "pdf" ||
+      "mp4" ||
       "avi" ||
       "webm"
     ) {
@@ -44,7 +44,32 @@ const multerFilter = (req, file, cb) => {
 const upload = multer({
   storage: multerStorage,
   fileFilter: multerFilter,
-}).single("file");
+});
 //
-// console.log( path.resolve(__dirname, "./", "uploads"))
-module.exports = upload;
+Router.post("/upload", upload.single("file"), (req,res) => {
+  try {
+    console.log(req.body)
+    //createElement({ name: req.files[0].filename }, uploads);
+    if (req.body.type === "image") {
+      updatElement(
+        { email: req.body.email },
+        { personalImage: req.body.origin+'/'+req.body.fileName },
+        Account2
+      );
+    }
+    if (req.body.type === "video") {
+      updatElement(
+        { email: req.body.email },
+        { personalVideo: req.body.origin+'/'+req.body.fileName },
+        Account2
+      );
+    }
+    const link = { link: req.body.origin+'/'+req.body.fileName};
+    res.status(200).send(link);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send("err",error,message);
+    // console.error(error);
+  }
+}); 
+module.exports = Router;

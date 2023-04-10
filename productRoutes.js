@@ -8,11 +8,11 @@ const {
 } = require("./mongoose");
 const Products = require("./productsSchema");
 const Router = express.Router();
-const { upload } = require("./multer");
+const  upload  = require("./multer");
 
 Router.get("/getproducts", (req, res) => {
   try {
-    fetchData((data) => {
+    fetchData((data) => { 
       res.status(201).send(data);
     }, Products);
   } catch (err) {
@@ -51,8 +51,9 @@ function update(req, res) {
   try {
     const id = req.body.id;
     const product = req.body.product;
+    console.log(id, product)
     updatElement({ _id: id }, product, Products);
-    res.status(201).send("saved");
+    res.status(200).send("saved");
   } catch (err) {
     res.status(500).send(err);
     console.log(err);
@@ -70,18 +71,18 @@ function deleteproduct(req, res) {
     console.log(err);
   }
 }
-// Router.post("/addcover", upload, (req, res) => {
-//   try {
-//     const product = req.body.product;
-//     const path = req.files[0].filename;
-//     updatElement({ name: product }, { image: path }, Products);
-//     // fetchUser((data)=>{if(data.type==='single'){
+Router.post("/addcover", upload, (req, res) => {
+  try {
+    const product = req.body.product;
+    const path = req.files[0].filename;
+    updatElement({ name: product }, { image: path }, Products);
+    // fetchUser((data)=>{if(data.type==='single'){
 
-//     // }},{name:product},Products)
-//     res.status(201).send(path);
-//   } catch (err) {
-//     res.status(500).send(err);
-//   }
-// });
+    // }},{name:product},Products)
+    res.status(201).send(path);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
 
 module.exports = Router;

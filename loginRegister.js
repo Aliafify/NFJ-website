@@ -39,7 +39,7 @@ function registerClient(req, res) {
     try {
       if (err) {
         res.send(err.message);
-      }
+      } 
       if (err) throw err;
       if (doc) {
         // res.send("this email already has an account please login to create appointment or use another email");
@@ -62,7 +62,7 @@ function registerClient(req, res) {
       }
     } catch (e) {
       console.log(e);
-      res.send(e);
+      res.json({state:"This email already has an account please login to create an appointment or use another email"});
     }
   });
 }
@@ -80,7 +80,7 @@ function appointment(req, res) {
         } else {
           res.status(200).send("Appointment created");
         }
-      });
+      }); 
     }
     if (doc) {
       updatElement(
@@ -92,23 +92,23 @@ function appointment(req, res) {
         if (!dd.error) return res.status(200).send("Appointment created");
       });
     }
-  });
+  });  
 }
 // updatElement({_id:"63e16361b733ae2ab4983cff"},{valid:true},Account3).then(data=>console.log('ddd',data))
 Router.post("/activate", activate);
 function activate(req, res) {
   try {
     // console.log(req.body)
-    const otp = req.body.otp;
+    const otp = req.body.otp;  
     const id = req.body.id;
     //   updatElement({_id:id},{otp:{value}})
-    fetchUser((d)=>{
+    fetchUser((d)=>{ 
       if (d) {
         const savedOtp = d.otp.value;
         if (parseInt(otp) === parseInt(savedOtp)) {
           updatElement({_id:id},{valid:true}, Account3).then(
             (data) => {
-              res.status(200).json({state:"user activated",user:{user:data,auth:true,state:null}})
+              res.status(200).send({state:"user activated",user:{user:data,auth:true,state:null}})
             }
           );
         }
@@ -120,4 +120,23 @@ function activate(req, res) {
     res.send(e.message);
   }
 }
+
+// resend otp 
+ Router.post('/resend/otp',(req,res)=>{
+     console.log(req.body)
+     const id=req.body.id;
+
+     Account3.findOne({_id:id})
+     .then(data=>{
+      const otp = generateOTP();
+      const message = `<p> please use this number to activate your account <br/>${otp}</p>`
+      email(data.email,'<h1>NFJ-Activation-OTP</h1>',message).then(drata=>console.log(drata))
+      updatElement({_id:id},{otp:{value:otp,date:Date.now()}},Account3)
+      res.status(200).send("new code sent to your email ");
+     })
+     .catch((err)=>{
+      res.send('error happend while sending to your email')
+      console.log(err.message)
+     })
+ })
 module.exports = Router;

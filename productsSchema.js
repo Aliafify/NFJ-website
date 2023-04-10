@@ -9,7 +9,7 @@ const products = new mongoose.Schema({
   discription: String,
   count: Number,
   type: String,
-  limit: Number, // in stock
-  
+  // limit: Number,
+  // weeklyDays: [], // week days take 0 ,1,2,3,4,5,6 numbers
 });
 module.exports = mongoose.model("Products", products);

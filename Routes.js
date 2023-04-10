@@ -43,8 +43,14 @@ Router.get("/auth", async (req, res) => {
       const Schema = schemas[role];
       await Schema.findOne({ _id: id }, (err, user) => {
         if (err) throw err;
-        res.send({ user: user, auth: true,state:null });
-
+        if(!user.valid){
+          // console.log(user,'hhh')
+          res.send({ user: user, auth: false,state:'activate' });
+        }
+        else{
+          res.send({ user, auth: false,state:null });
+        }
+        
       });
     } else {
 
@@ -65,7 +71,12 @@ function auth(req, res, next) {
       else {
         req.logIn(user, (err) => {
           if (err) throw err;
-          res.send({ user, auth: true,state:null });
+          // 
+          if (!user.valid&user.role==='client') 
+          {res.send({ user:user, auth: false,state:"activate" });}
+
+          else {res.send({ user:user, auth: true,state:null });}
+
         });
       }
     })(req, res, next);
@@ -73,7 +84,7 @@ function auth(req, res, next) {
     res.send(err);
   }
 }
-Router.get("/logout", function (req, res) {
+Router.get("/logout", function (req, res) { 
   req.logout();
   res.redirect("/");
 });

@@ -21,15 +21,16 @@ module.exports = function (passport) {
             } else {
               Account3.findOne({ email: username }).then((user) => {
                 //console.log("user")
-                bcrypt.compare(password, user.password, (err, result) => {
-                  if (err) throw err;
-                  //console.log(result)
-                  if (result === true) {
-                    return done(null, user);
-                  } else {
-                    return done(null, false);
-                  }
-                });
+                if (!user) return done(null, false);
+                if (user) {
+                  bcrypt.compare(password, user.password, (err, result) => {
+                    if (result === true) {
+                      return done(null, user);
+                    } else {
+                      return done(null, false);
+                    }
+                  });
+                }
               });
             }
           });

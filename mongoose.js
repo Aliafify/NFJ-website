@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
-const localLink = process.env.MONGO
+const link = process.env.MONGO
+const localLink = process.env.LOCAL_DATABASE
 
 async function main() {
-  await mongoose.connect(localLink,
+  await mongoose.connect(link,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -12,7 +13,7 @@ async function main() {
     }
   );
 }
-
+ 
 // create new element
 async function createElement(object, schema1) {
   try{
