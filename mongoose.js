@@ -1,18 +1,20 @@
-const mongoose = require('mongoose');
-const link = "mongodb+srv://ziadnfj:RMS6mYw95OSycu4N@cluster0.evmaedu.mongodb.net/?retryWrites=true&w=majority"
+const mongoose = require('mongoose'); 
+const link = process.env.MONGO
 const localLink = process.env.LOCAL_DATABASE
-
+const username = encodeURIComponent("ziadnfj");
+const password = encodeURIComponent("Anfj123");
 async function main() {
-  await mongoose.connect(link,
-    {
+  await mongoose.connect(
+    link,
+    { 
       useNewUrlParser: true,
       useUnifiedTopology: true,
-    },
+    }, 
     () => {  
       console.log("MongoDB-connected"); 
-    }
+    } 
   );
-}
+} 
  
 // create new element
 async function createElement(object, schema1) {

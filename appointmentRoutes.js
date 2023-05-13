@@ -59,7 +59,7 @@ const {
 // update Appointment
 function appointment (req,res){
   try{
-    console.log(req.body)
+    // console.log(req.body)
   const data = req.body;
   const day = data.day
   newFetchUser({day:day},Appointment)

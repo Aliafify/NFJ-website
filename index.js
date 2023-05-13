@@ -4,20 +4,20 @@ const bodyParser = require("body-parser");
  const cors = require('cors')
 const { main } = require("./mongoose.js");
 const routes1 = require("./Routes.js");
-const routes2 = require("./account2Routes.js");
+const routes2 = require("./account2Routes.js"); 
 const routes3 = require("./account3Routes");
 const Translation = require('./translationRoutes')
 const appointmentsRoutes = require('./appointmentRoutes')
 const registerWithAppointment = require('./loginRegister')
-const productRoutes = require('./productRoutes')
+const productRoutes = require('./productRoutes')  
 // const upload = require("./upload")
-var passport = require("passport");
+var passport = require("passport"); 
 const passportLocal = require("passport-local").Strategy;
 const bcrypt = require("bcryptjs");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
-const path = require("path")
+const path = require("path") 
 
 // -----------End Of Imports
  
